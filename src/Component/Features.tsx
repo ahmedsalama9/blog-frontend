@@ -1,7 +1,7 @@
 import One from "../../public/one.jpg";
-import React from "react";
+
 // import Swiper core and required modules
-import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
+import { Navigation, Autoplay, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,100 +10,68 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-function Features({firstTitle, secondTitle}) {
-  const itemData = [
-    {
-      id: 1,
-      image: One,
-      title: "Post Tiile one",
-      category: "Category One",
-      author: "Ahmed salama",
-    },
-    {
-      id: 2,
-      image: One,
-      title: "Post Tiile two",
-      category: "Category three",
-      author: "Ahmed salama",
-    },
-    {
-      id: 3,
-      image: One,
-      title: "Post Tiile four",
-      category: "Category four",
-      author: "Ahmed salama",
-    },
-    {
-      id: 4,
-      image: One,
-      title: "Post Tiile three",
-      category: "Category three",
-      author: "Ahmed salama",
-    },
-    {
-      id: 5,
-      image: One,
-      title: "Post Tiile three",
-      category: "Category three",
-      author: "Ahmed salama",
-    },
-    {
-      id: 6,
-      image: One,
-      title: "Post Tiile three",
-      category: "Category three",
-      author: "Ahmed salama",
-    },
-    {
-      id: 7,
-      image: One,
-      title: "Post Tiile three",
-      category: "Category three",
-      author: "Ahmed salama",
-    },
-    {
-      id: 8,
-      image: One,
-      title: "Post Tiile three",
-      category: "Category three",
-      author: "Ahmed salama",
-    },
-  ];
+import { useContext } from "react";
+import { PostContext } from "../context/PostContext";
+import { Link } from "react-router-dom";
+function Features({ firstTitle, secondTitle }) {
+  const { state } = useContext(PostContext);
+  const { posts, loading, error } = state;
+  const img = One;
+  if (loading) {
+    return <p>posts are loading...</p>;
+  }
+  if (error) {
+    return <p>an error occurs: {error}</p>;
+  }
   return (
     <>
       <div className="flex flex-col items-center justify-center">
         <h3 className="text-[25px] font-semibold">
-          {firstTitle} <span className="text-[var(--color-sec)]"> {secondTitle}</span>
+          {firstTitle}{" "}
+          <span className="text-[var(--color-sec)]"> {secondTitle}</span>
         </h3>
         <span className="w-10 h-1 block bg-[var(--color-sec)] rounded-full mt-5"></span>
       </div>
       <div className="w-full h-[750px] relative mx-auto flex flex-row items-center justify-center gap-5 -mt-20 cursor-grab">
         <Swiper
-          // install Swiper modules
           modules={[Navigation, A11y, Autoplay]}
           spaceBetween={10}
-          slidesPerView={5}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
+          navigation
+          autoplay={{ delay: 3000, disableOnInteraction: true }}
+          breakpoints={{
+            320: { slidesPerView: 1 }, // small phones
+            480: { slidesPerView: 2 }, // phones
+            640: { slidesPerView: 3 }, // tablets
+            1024: { slidesPerView: 4 }, // laptops
+            1280: { slidesPerView: 5 }, // desktops
+          }}
         >
-          {itemData.map((item, index) => (
-            <div key={index} className="p-10">
-              <SwiperSlide>
+          {posts.map((item) => (
+            <div className="p-10">
+              <SwiperSlide key={item.id}>
                 <div>
                   <img
-                    src={item.image}
+                    src={img}
                     alt={item.title}
                     className="w-200 h-80 object-cover"
                   />
                 </div>
-                <div className="mt-5">
+                <div className="mt-5 ">
                   <h2 className="font-bold text-[20px] text-center text-[var(--color-sec)]/80 mb-2">
                     {item.title}
                   </h2>
                   <p className="text-grey-100 font-noraml text-[15px]">
-                    by: <span className="font-bold">{item.author}</span> -{" "}
-                    <span className="text-[#a0a0a0]">{item.category}</span>
+                    by: <span className="font-bold">Ahmed Salama</span> -{" "}
+                    <span className="text-[#a0a0a0]">Technology</span>
                   </p>
+                  <div className="mt-3 text-center">
+                    <Link
+                      to={`/post/${item.title}`}
+                      className="bg-blue-500 text-white font-medium px-2 py-1 rounded-sm "
+                    >
+                      Read More
+                    </Link>
+                  </div>
                 </div>
               </SwiperSlide>
             </div>

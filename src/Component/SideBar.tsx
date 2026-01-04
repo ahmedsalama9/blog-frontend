@@ -38,13 +38,13 @@ function SideBar() {
   const instagramImages = [One, One, One, One, One, One];
   return (
     <div>
-      <aside className="w-full  p-4 space-y-8">
+      <aside className="w-full min-h-100 sticky top-0 p-4 space-y-8">
         {/* Follow Social Media */}
         <div>
           <h3 className="text-lg font-semibold mb-4 bg-[var(--bg-sec)] text-white py-2 px-3">
             Follow Us
           </h3>
-          <div className="flex gap-3 mt-10 ">
+          <div className="flex gap-3 mt-10 w-[200px] md:w-[350px] lg:w-fit xl:w-full overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             <a
               href="#"
               className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition"

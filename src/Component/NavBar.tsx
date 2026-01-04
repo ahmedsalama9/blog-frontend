@@ -72,7 +72,7 @@ function NavBar() {
           </p>
         </div>
         {/** the nav bar */}
-        <nav className="w-full flex flex flex justify-around  items-center bg-[var(--bg-sec)] text-[var(--color-primary)] h-15  ">
+        <nav className="w-full flex flex flex justify-around items-center bg-[var(--bg-sec)] text-[var(--color-primary)] h-15  ">
           {/**for mobil */}
           <div
             onClick={() => setBurgerMenu(!burgerMenu)}
@@ -87,7 +87,7 @@ function NavBar() {
           <div>
             <ul className="xl:flex lg:flex hidden justify-center items-center xl:gap-10 lg:gap-10  h-15">
               <li className="text-[18px] font-medium  h-15 flex justify-center items-center hover:text-[var(--bg-sec)] hover:bg-[var(--color-primary)] transition-all duration-300 p-2">
-                <NavLink to="#">Home</NavLink>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li className="text-[18px] font-medium  h-15 flex justify-center items-center hover:text-[var(--bg-sec)] hover:bg-[var(--color-primary)] transition-all duration-300 p-2">
                 <NavLink to="#">Blogs</NavLink>
@@ -98,7 +98,7 @@ function NavBar() {
             </ul>
           </div>
           <div className="flex items-center justify-center gap-10">
-            <InputIcon className="transition-all duration-300 hover:scale-105 cursor-pointer" />
+            {/* <InputIcon className="transition-all duration-300 hover:scale-105 cursor-pointer" /> */}
             <div className="relative">
               <div
                 onClick={() => setSBox(true)}
@@ -138,7 +138,7 @@ function NavBar() {
           >
             <ul className="xl:hidden flex-row px-10 py-8 ">
               <li className="text-[18px] font-medium  text-white transition-all duration-300 p-2 ">
-                <NavLink to="#">Home</NavLink>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li className="text-[18px] font-medium text-white  transition-all duration-300 p-2">
                 <NavLink to="#">Blogs</NavLink>
