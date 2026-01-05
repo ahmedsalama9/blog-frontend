@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import One from "../../public/one.jpg";
+import One from "../assets/one.jpg";
 // import Swiper core and required modules
 import { Navigation, Autoplay, A11y } from "swiper/modules";
 
@@ -67,7 +67,7 @@ function Features({ firstTitle, secondTitle }) {
                     by: <span className="font-bold">Ahmed Salama</span> -{" "}
                     <span className="text-[#a0a0a0]">Technology</span>
                   </p>
-                  <div className="mt-3 text-center">
+                  <div onClick={() => scrollTo(0,0)} className="mt-3 text-center">
                     <Link
                       to={`/post/${item.title}`}
                       className="bg-blue-500 text-white font-medium px-2 py-1 rounded-sm "

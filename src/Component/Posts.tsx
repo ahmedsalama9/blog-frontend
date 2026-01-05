@@ -4,7 +4,7 @@ import ScheduleIcon from "@mui/icons-material/Schedule";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { PostContext } from "../context/PostContext";
-import One from "../../public/one.jpg";
+import One from "../assets/one.jpg";
 
 function Posts() {
   const img = One;
@@ -63,7 +63,7 @@ function Posts() {
             </div>
             <p className="w-full truncate px-3 mt-12">{item.body}</p>
 
-            <div className="text-center mt-4 mb-2  ">
+            <div onClick={() => scrollTo(0,0)} className="text-center mt-4 mb-2  ">
               <Link
                 to={`/post/${item.title}`}
                 className="bg-[var(--bg-primary)] text-white px-3 py-1 rounded-sm cursor-pointer"

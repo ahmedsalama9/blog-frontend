@@ -91,7 +91,7 @@ function NavBar() {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="xl:flex lg:flex hidden gap-10">
+        <ul className="xl:flex lg:flex hidden gap-10 font-medium">
           <li><NavLink to="/">Home</NavLink></li>
           <li><NavLink to="/about">About us</NavLink></li>
           <li><NavLink to="/contact-us">Contact us</NavLink></li>

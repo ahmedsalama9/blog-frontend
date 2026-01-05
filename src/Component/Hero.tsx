@@ -1,4 +1,4 @@
-import One from "../../public/one.jpg";
+import One from "../assets/one.jpg";
 // import Swiper core and required modules
 import { Navigation, Autoplay, A11y } from "swiper/modules";
 
@@ -70,7 +70,7 @@ const Hero = (): JSX.Element => {
                         <span> {item.views}</span>
                       </p>
                     </div>
-                    <div className="mt-5 text-center">
+                    <div onClick={() => scrollTo(0,0)} className="mt-5 text-center">
                       <Link
                         to={`/post/${item.title}`}
                         className="bg-white text-black px-2 py-1 rounded-sm text-center hover:bg-blue-500 hover:text-white transition-all duration-500 text-sm font-medium"
