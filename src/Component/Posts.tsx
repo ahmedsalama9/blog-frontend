@@ -11,7 +11,7 @@ function Posts() {
   const { state } = useContext(PostContext);
   const { posts, loading, error } = state;
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const postsPerPage = 6;
 
   const numberOfPages = Math.ceil(posts.length / postsPerPage);
@@ -21,7 +21,7 @@ function Posts() {
     currentPage * postsPerPage
   );
 
-  const pagination = (page) => {
+  const pagination = (page: number) => {
     if (page < 1 || page > numberOfPages) return;
     setCurrentPage(page);
   };
@@ -61,7 +61,7 @@ function Posts() {
                 {item.title}
               </h2>
             </div>
-            <p className="w-fll truncate px-3 mt-12">{item.body}</p>
+            <p className="w-full truncate px-3 mt-12">{item.body}</p>
 
             <div className="text-center mt-4 mb-2  ">
               <Link

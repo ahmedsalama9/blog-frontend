@@ -1,4 +1,3 @@
-import React from "react";
 import One from "../../public/one.jpg";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";

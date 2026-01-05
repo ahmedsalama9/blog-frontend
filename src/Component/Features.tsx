@@ -5,16 +5,14 @@ import { Navigation, Autoplay, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 import { useContext } from "react";
 import { PostContext } from "../context/PostContext";
+import type { PostState } from "../context/PostContext";
+
 import { Link } from "react-router-dom";
+
 function Features({ firstTitle, secondTitle }) {
-  const { state } = useContext(PostContext);
+  const { state } = useContext<PostState | null>(PostContext);
   const { posts, loading, error } = state;
   const img = One;
   if (loading) {
@@ -43,12 +41,12 @@ function Features({ firstTitle, secondTitle }) {
             480: { slidesPerView: 2 }, // phones
             640: { slidesPerView: 3 }, // tablets
             1024: { slidesPerView: 4 }, // laptops
-            1280: { slidesPerView: 5 }, // desktops
+            1280: { slidesPerView: 4 }, // desktops
           }}
         >
           {posts.map((item) => (
-            <div className="p-10">
-              <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.id}>
+              <div className="p-10">
                 <div>
                   <img
                     src={img}
@@ -73,8 +71,8 @@ function Features({ firstTitle, secondTitle }) {
                     </Link>
                   </div>
                 </div>
-              </SwiperSlide>
-            </div>
+              </div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>

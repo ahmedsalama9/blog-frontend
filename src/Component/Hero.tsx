@@ -1,19 +1,16 @@
 import One from "../../public/one.jpg";
 // import Swiper core and required modules
-import { Navigation, Pagination, Autoplay, A11y } from "swiper/modules";
+import { Navigation, Autoplay, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import { useContext } from "react";
+
+import {  useContext } from "react";
 import { PostContext } from "../context/PostContext";
 import { Link } from "react-router-dom";
-const Hero = () => {
-
+import type {JSX} from "react"
+const Hero = (): JSX.Element => {
   const img = One;
   const { state } = useContext(PostContext);
   const { posts, loading, error } = state;
@@ -22,12 +19,12 @@ const Hero = () => {
     return <p>psots are loading</p>;
   }
   if (error) {
-    return console.log(error);
+    return <p>an error occurs: {error}</p>
   }
   return (
     <>
       <div className="w-full h-[750px] relative mx-auto flex flex-row items-center justify-center gap-5 -mt-6">
-      <Swiper
+        <Swiper
           modules={[Navigation, A11y, Autoplay]}
           spaceBetween={10}
           navigation
