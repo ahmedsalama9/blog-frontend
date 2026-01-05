@@ -1,5 +1,10 @@
-import One from "../../public/one.jpg";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
+import One from "../../public/one.jpg";
 // import Swiper core and required modules
 import { Navigation, Autoplay, A11y } from "swiper/modules";
 
